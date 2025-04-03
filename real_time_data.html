@@ -1,0 +1,152 @@
+<!-- Todo: modify text, adapt based on sensor input, manage photos of yesterday and today -->
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Data - BloomAir</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        .data-section, .chart-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .data-section p, .chart-section p {
+            text-align: left;
+        }
+        .chart-section canvas {
+            max-width: 100%;
+            height: auto;
+        }
+        .placeholder-info {
+            background-color: #f8f9fa;
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            font-style: italic;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        .carousel img {
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .last-updated {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .conditions-container {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: left;
+        }
+        .conditions-container h2 {
+            font-size: 1rem;
+        }
+        .conditions-container p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="buttons">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="why_bloomair.html">Why BloomAIR</a>
+            <a href="native_insects.html">Native Insects</a>
+            <a href="native_plants.html">Native Plants</a>
+            <a href="what_to_do.html">What to Do</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <h1>Real Time Data</h1>
+        <p>Use AI on live data from our environmental sensors monitoring our ecosystem.</p>
+
+        <div class="placeholder-info">
+            <p><strong>Note:</strong> Real-time data is currently unavailable. This page is in development and will be connected to sensors soon.</p>
+        </div>
+
+        <div class="conditions-container">
+            <h2>Current Conditions</h2>
+            <p><strong>Temperature:</strong> <span>-- °C</span></p>
+            <p><strong>Humidity:</strong> <span>-- %</span></p>
+            <p><strong>CO₂:</strong> <span>-- ppm</span></p>
+            <p><strong>Particulate Matter:</strong> <span>-- µm</span></p>
+            <p><strong>Noise:</strong> <span>-- dB</span></p>
+        </div>
+
+        <div class="chart-section">
+            <h2>Sensor Data Over Time</h2>
+            <canvas id="sensorChart" width="400" height="200"></canvas>
+        </div>
+        
+        <div class="data-section">
+            <h2>Photos of Yesterday - <span id="yesterdayDate"></span></h2>
+            <div id="yesterdayGallery" class="carousel">
+                <!-- Photos from yesterday will be displayed here -->
+            </div>
+        
+            <h2>Photos of Today - <span id="todayDate"></span></h2>
+            <div id="todayGallery" class="carousel">
+                <!-- Photos from today will be displayed here -->
+            </div>
+        </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function loadImages(folder, galleryId) {
+            const gallery = document.getElementById(galleryId);
+            gallery.innerHTML = ""; // Clear current content
+
+            const images = [
+                `${folder}/image1.jpg`,
+                `${folder}/image2.jpg`,
+                `${folder}/image3.jpg`
+            ]; // Add image filenames as needed
+
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                gallery.appendChild(img);
+            });
+        }
+
+        function formatDate(daysAgo) {
+            const date = new Date();
+            date.setDate(date.getDate() - daysAgo);
+            return date.toLocaleDateString();
+        }
+
+        document.getElementById('yesterdayDate').innerText = formatDate(1);
+        document.getElementById('todayDate').innerText = formatDate(0);
+
+        loadImages('photos of yesterday', 'yesterdayGallery');
+        loadImages('photos of today', 'todayGallery');
+    });
+</script>
+</body>
+</html>

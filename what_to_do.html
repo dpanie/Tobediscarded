@@ -1,0 +1,134 @@
+<!-- Todo: modify text, create getform account and endpoint, create a publish surve, update dummy shelters. Reflect on purpose -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to Do - BloomAir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff8;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        header { 
+            background-color: rgba(0, 0, 0, 0.6); 
+            padding: 1rem; 
+        }
+        .buttons a { 
+            display: inline-block; 
+            padding: 12px 24px; 
+            margin: 5px;
+            background-color: #4CAF50; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .buttons a:hover {
+            background-color: #45a049;
+        }
+        .content, .submission, .carousel {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .content h1, .submission h1, .carousel h1 {
+            text-align: center;
+        }
+        .submission form {
+            display: grid;
+            gap: 15px;
+        }
+        .submission label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .submission input, .submission textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submission button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+            font-size: 16px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .submission button:hover {
+            background-color: #45a049;
+        }
+        .carousel img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="buttons">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="why_bloomair.html">Why BloomAIR</a>
+            <a href="native_insects.html">Native Insects</a>
+            <a href="native_plants.html">Native Plants</a>
+            <a href="real_time_data.html">Real Time Data</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <h1>How to Support Native Pollinators</h1>
+        <ul>
+            <li>Plant a variety of native flowers that bloom throughout the growing season.</li>
+            <li>Avoid using pesticides, especially systemic insecticides.</li>
+            <li>Provide nesting habitats like bare soil patches, dead wood, and bee hotels.</li>
+            <li>Report sightings of <a href="invasive_insects.html">invasive insects </a> like the Spotted Lanternfly or Asian Hornet to local authorities.</li>
+        </ul>
+        <p><b>Be aware, speak to your community members.</b></p>
+        <p>To make sure you have gotten it all clear, take our survey <a href="https://forms.gle/GOOGLE_FORM_ID">Here</a>.</p>
+        <p>Useful resource to learn more: <a href="https://www.sunywcc.edu/about/npc/">The Native Plant Center</a>.</p>
+    </div>
+
+    <div class="submission">
+        <h1>Share Your Shelter</h1>
+        <p>Please fill out the form below to submit your shelter details:</p>
+        <form action="https://getform.io/f/bqokyrkb" method="POST" enctype="multipart/form-data">
+            <label>Full Name: <input type="text" name="full_name" required /></label>
+            <label>Email Address: <input type="email" name="email" required /></label>
+            <label>List of Native Plants Chosen: <textarea name="native_plants" required></textarea></label>
+            <label>Zip Code of the Shelter Location: <input type="text" name="location" pattern="\d{5}" title="Please enter a valid 5-digit zip code" required /></label>
+            <label>Upload a Picture of the Shelter (JPG/JPEG only):
+                <input type="file" name="shelter_image" accept="image/jpeg" required /></label>
+            <label>Date When the Shelter Was Set Up (Optional):
+                <input type="date" name="setup_date" /></label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="carousel">
+        <h1>Community Shelters Showcase</h1>
+        <div id="carousel-container">
+            <img src="images/shelter1.jpg" alt="Shelter 1">
+            <img src="images/shelter2.jpg" alt="Shelter 2">
+            <img src="images/shelter3.jpg" alt="Shelter 3">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0fff8;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+}
+
+.buttons a {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.buttons a:hover {
+    background-color: #45a049;
+}
+
+.content {
+    max-width: 1100px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.monarch-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.monarch-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+}
+
+.section {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
